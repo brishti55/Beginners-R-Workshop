@@ -1,5 +1,5 @@
 # Beginners-R-Workshop
-This workshop is meant for absolute beginners with little or no prior programming language. 
+This workshop is meant for absolute beginners with little or no prior knowledge of programming language. 
 The materials include presentation slides, hands-on activity one and two.
 
 # Slides
