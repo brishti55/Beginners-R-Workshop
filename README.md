@@ -18,6 +18,6 @@ We discuss why and how R can be useful for working with your data. We covered so
 * Installing packages
 * Using different functions to see the content of a dataset
 * Visualization (Using basic plot function and ggplot2 library)
-..* Scatter Plot
-..* Bar Plot
-..* Histogram 
+  * Scatter Plot
+  * Bar Plot
+  * Histogram 
