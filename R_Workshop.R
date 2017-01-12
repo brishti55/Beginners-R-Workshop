@@ -46,6 +46,20 @@ fruits.data["quantity"] <- c(2, 6, 5, 1, 30)
 my_fruits <- subset(fruits.data, quantity < 5, select = c(name, quantity))
 
 ## Hands-on Activity 2
+
+## Install packages
+# Hmisc
+install.packages("Hmisc")
+library(Hmisc)
+
+# dplyr
+install.packages("dplyr")
+library(dplyr)
+
+# install ggplot2 package
+install.packages("ggplot2")
+library(ggplot2)
+
 # Look into the content of airquality and mtcars dataset
 airquality
 mtcars
@@ -58,31 +72,34 @@ aq <- read.csv("airquality.csv")
 # Remove the extra column by setting it's value to NULL.
 aq$X <- NULL
 
-## Install packages
-# Hmisc
-install.packages("Hmisc")
-library(Hmisc)
-
-# dplyr
-install.packages("dplyr")
-library(dplyr)
-
 # Try these examples with the airquality dataset or the loaded dataset aq
-summary(airquality)
-mean(airquality$Temp)
-sapply(airquality, mean, na.rm = TRUE)
-describe(airquality)
-warmDays <- subset(airquality, Temp > 80, select = c(Day, Month))
+
+# Returns first 10 rows of the data frame
+head(aq, n = 10) 
+
+# Returns an overall summary of the data frame for each columns 
+summary(aq)
+
+# Returns the mean for that specific column
+mean(aq$Temp)
+
+# Applies "mean" function over the columns
+sapply(aq, mean, na.rm = TRUE)
+
+# Returns statistical observations of the data frame (Hmisc package function)
+describe(aq)
+
+# Select a subset based on given conditions
+warmDays <- subset(aq, Temp > 80, select = c(Day, Month))
 warmDays
+
+# Reorders columns (function from Dplyr package)
 arrange(warmDays, Month)
 
 ## Plotting (using mtcars dataset)
+
 # Split the screen into two
 par(mfrow = c(1, 2))
-
-# install ggplot2 package
-install.packages("ggplot2")
-library(ggplot2)
 
 ## Scatter Plot
 # Find out the relationship between car weight and mile per gallon (mpg) use.
