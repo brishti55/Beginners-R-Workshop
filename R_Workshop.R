@@ -52,6 +52,10 @@ my_fruits <- subset(fruits.data, quantity < 5, select = c(name, quantity))
 install.packages("Hmisc")
 library(Hmisc)
 
+# plyr
+install.packages("plyr")
+library(plyr)
+
 # dplyr
 install.packages("dplyr")
 library(dplyr)
@@ -90,11 +94,17 @@ sapply(aq, mean, na.rm = TRUE)
 describe(aq)
 
 # Select a subset based on given conditions
-warmDays <- subset(aq, Temp > 80, select = c(Day, Month))
+warmDays <- subset(aq, Temp > 80, select = c(Day, Month, Temp))
 warmDays
 
 # Reorders columns (function from Dplyr package)
-arrange(warmDays, Month)
+arrange(warmDays, Temp)
+
+# Count the days in a month for each temperature
+count(warmDays, c("Temp", "Month"))
+
+# Find the average temperature for each month
+aggregate(Temp ~ Month, data = aq, mean)
 
 ## Plotting (using mtcars dataset)
 
@@ -115,6 +125,21 @@ qplot(mtcars$wt, mtcars$mpg, xlab = "Car Weight", ylab = "Mile/Gallon")
 # Following syntax can be used if the two vectors are already in the same data frame.
 qplot(wt, mpg, data=mtcars, xlab = "Car Weight", ylab = "Mile/Gallon")
 
+
+## Histogram - view the distribution of one dimensional data
+hist(mtcars$mpg)
+
+# Specify approximate number of bins with breaks
+hist(mtcars$mpg, breaks = 10)
+
+# Use ggplot2
+qplot(mtcars$mpg)
+qplot(Temp, data = airquality, binwidth = 2)
+
+## Boxplot of MPG by Car Cylinders 
+boxplot(mpg~cyl,data=mtcars, main="Car Milage Data", 
+        xlab="Number of Cylinders", ylab="Miles Per Gallon")
+
 ## Bar plot
 barplot(mtcars$wt)
 
@@ -127,12 +152,3 @@ qplot(mtcars$cyl)
 # Treat cyl as discrete
 qplot(factor(mtcars$cyl))
 
-## Histogram - view the distribution of one dimensional data
-hist(mtcars$mpg)
-
-# Specify approximate number of bins with breaks
-hist(mtcars$mpg, breaks = 10)
-
-# Use ggplot2
-qplot(mtcars$mpg)
-qplot(Temp, data = airquality, binwidth = 2)
