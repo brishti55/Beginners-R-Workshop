@@ -2,6 +2,9 @@
 This workshop is meant for absolute beginners with little or no prior knowledge of programming language. 
 The materials include presentation slides, hands-on activity one and two.
 
+# Authors
+Nushrat Khan and Alison Blaine
+
 # Slides
 We discuss why and how R can be useful for working with your data. We covered some basic concepts like variable, function, dataframe etc. It includes instructions for downloading R and R Studio and other reference materials. All these topics are further explained with examples in the hands-on activities. 
 
