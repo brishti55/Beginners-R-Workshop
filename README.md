@@ -1,4 +1,6 @@
 # Beginners-R-Workshop
+[![DOI](https://zenodo.org/badge/75787786.svg)](https://zenodo.org/badge/latestdoi/75787786)
+
 This workshop is meant for absolute beginners with little or no prior knowledge of programming language. 
 The materials include presentation slides, hands-on activity one and two.
 
